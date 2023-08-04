@@ -1,5 +1,10 @@
+'use client'
+
 import { Header } from '@/components/body/Header'
+import { NavMenu } from '@/components/body/NavMenu'
+import { LayoutContext } from '@/contexts/LayoutContext'
 import { Roboto } from 'next/font/google'
+import { useContext } from 'react'
 
 const roboto = Roboto({ weight: ['400', '700'] , subsets: ['latin'] })
 
@@ -13,11 +18,15 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
+  const {showNavMenu} = useContext(LayoutContext)
   return (
     <section lang="en">
-      <div className={roboto.className}>
-        <Header />
-        {children}
+      <div className={`flex ${roboto.className}`}>
+        { showNavMenu && <NavMenu /> }
+        <div className='flex flex-col w-screen'>
+          <Header />
+          {children}
+        </div>
       </div>
     </section>
   )

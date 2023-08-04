@@ -8,7 +8,7 @@ interface IProfileRoot {
 
 export function ProfileRoot({children}: IProfileRoot) {
   return (
-    <div className='flex items-center gap-4'>
+    <div className='flex items-center gap-6'>
       {children}
     </div>
   )

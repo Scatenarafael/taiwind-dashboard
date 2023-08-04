@@ -1,15 +1,14 @@
 'use client'
 
-import React, { ReactNode } from 'react'
+import React, { ComponentProps, ReactNode } from 'react'
 
-interface IProfileDescriptionProps {
+interface IProfileDescriptionProps extends ComponentProps<'div'> {
   children: ReactNode
-  justfy?: 'start' | 'end'
 }
 
-export function ProfileDescription({children, justfy= 'end'}: IProfileDescriptionProps) {
+export function ProfileDescription({children, ...props}: IProfileDescriptionProps) {
   return (
-    <div className={`text-xs text-${justfy}`}>
+    <div {...props}>
       {children}
     </div>
   )
